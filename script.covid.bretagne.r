@@ -19,8 +19,8 @@ summary(bzh)
 
 ggplot(data=bzh) + aes(y=nombre, x=date, col=categorie) +geom_point() + geom_line() + theme_classic() +
 	labs(y="Nombre de cas déclarés par l'ARS en région Bretagne", col="", 
-		caption=paste("données mises à jour le",aujourdhui,"@MaelaKloareg"))
-
+		caption=paste("données mises à jour le",aujourdhui))
+		#caption=paste("données mises à jour le",aujourdhui,"@MaelaKloareg"))
 # échelle log
 ggplot(data=bzh) + aes(y=nombre, x=date, col=categorie) +geom_point() + geom_line() + theme_classic() +
 	labs(y="Nombre de cas déclarés par l'ARS en région Bretagne (échelle logarithmique)", col="") +
@@ -37,7 +37,7 @@ summary(castbzh)
 ggplot(data=castbzh) + theme_classic() +
 	aes(y=diffcas, x=date) + geom_col(fill="royalblue") +
 	labs(y="", 
-		caption=paste("données mises à jour le",aujourdhui,"@MaelaKloareg"))+
+		caption=paste("données mises à jour le",aujourdhui))+
 	ggtitle("Augmentation quotidienne du nombre de cas COVID-19 déclarés par l'ARS en région Bretagne") +
 	annotate("text", x = dateconfinement , y = 40, label = "Début du confinement", angle = 90)
 
@@ -56,7 +56,7 @@ summary(dep)
 
 ggplot(data=dep) + aes(y=Nombre, x=Date, col=Département) +geom_point() + geom_line() + theme_classic() +
 	labs(y="Nombre de cas COVID-19 déclarés par l'ARS en région Bretagne", 
-		caption=paste("mis à jour le",aujourdhui))
+		caption=paste("données mises à jour le",aujourdhui))
 
 # échelle log
 ggplot(data=dep) + aes(y=Nombre, x=Date, col=Département) +geom_point() + geom_line() + theme_classic() +
