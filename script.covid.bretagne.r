@@ -68,3 +68,15 @@ ggplot(data=bzh) + theme_classic() +
 	ggtitle("Augmentation quotidienne du nombre de cas COVID-19 déclarés par l'ARS en région Bretagne") +
 	annotate("text", x = dateconfinement , y = 40, label = "Début du confinement", angle = 90)
 ggsave("diffcas_BZH.png")
+
+bzh$diffmorts = c(NA,diff(bzh$morts4dep))
+summary(bzh)
+
+ggplot(data=bzh) + theme_classic() +
+	aes(y=diffmorts, x=Date) + geom_col(fill="darkorchid") +
+	labs(y="", 
+		caption=paste("données mises à jour le",hier,"@MaelaKloareg"))+
+	ggtitle("Augmentation quotidienne du nombre de morts à l'hopital en région Bretagne (ARS)") +
+	annotate("text", x = dateconfinement , y = 5, label = "Début du confinement", angle = 90)
+ggsave("diffmorts_BZH.png")
+
